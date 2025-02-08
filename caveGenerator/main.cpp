@@ -321,12 +321,12 @@ int main() {
 
     sf::RenderWindow window(sf::VideoMode(1500, 900), L"Генератор пещер");
 
-    float minSize = 200;
-    int min_rooms = 10;
+    float minSize = 100;
+    int min_rooms = 45;
     std::vector<Room> lines = Delenie(window, minSize, min_rooms);
     std::vector<Room> rooms = RoomGenerator(lines);
     std::vector<edge> grafs = GrafGenerator(lines);
-    int cellSize = 3;
+    int cellSize = 1;
     int gridWidth = static_cast<int>(window.getSize().x / cellSize);
     int gridHeight = static_cast<int>(window.getSize().y / cellSize);
     std::vector<std::vector<CellState>> grid = cellularAutomaton(rooms, grafs, gridWidth, gridHeight, cellSize);
